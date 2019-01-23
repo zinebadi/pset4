@@ -1,17 +1,33 @@
 #include <cs50.h>
 #include <stdio.h>
 
-int main( int argc, char *argv[] )
+int main( int argc, char *argv[3] )
 {
-
-   if( argc == 2 ) {
+   if( argc == 2 ) 
+      {
       printf("The argument supplied is %s\n", argv[1]);
-      fprintf( stderr, "my %s has %d chars\n", "string format", 30);
+       }
+   else 
+   {
+      fprintf( stderr, "the correct usage is by giving two arguments \n");
+      return 1;
    }
-   else if( argc > 2 ) {
-      printf("Too many arguments supplied.\n");
-   }
-   else {
-      printf("One argument expected.\n");
-   }
-}
+   
+   FILE *in_file  = fopen("name_of_file", "r"); // read only 
+   FILE *out_file = fopen("name_of_file", "w"); // write only         
+   // test for files not existing. 
+   if (in_file == NULL || out_file == NULL) 
+      {   
+       printf("Error! Could not open file\n"); 
+      }
+}        
+           
+          // write to file vs write to screen 
+          fprintf(file, "this is a test %d\n", integer); // write to file 
+          fprintf(stdout, "this is a test %d\n", integer); // write to screen  
+          printf("this is a test %d\n", integer); // write to screen  
+ 
+          // read from file/keyboard. remember the ampersands!  
+          fscanf(file, "%d %d", &int_var_1, &int_var_2);  
+          fscanf(stdin, "%d %d", &int_var_1, &int_var_2);  
+          scanf("%d %d", &int_var_1, &int_var_2); 
