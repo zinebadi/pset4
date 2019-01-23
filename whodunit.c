@@ -1,7 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 
-int main( int argc, char *argv[3] )
+int main( int argc, char *argv[] )
 {
    if( argc == 2 ) 
       {
@@ -16,12 +16,25 @@ int main( int argc, char *argv[3] )
    FILE *in_file  = fopen("name_of_file", "r"); // read only 
    FILE *out_file = fopen("name_of_file", "w"); // write only         
    // test for files not existing. 
-   if (in_file == NULL || out_file == NULL) 
+   if (in_file == NULL ) 
       {   
-       printf("Error! Could not open file\n"); 
+       fprintf(stderr, "Error! Could not open the file to read \n"); 
+       return 2;
       }
+   
+   if (out_file == NULL) 
+      {   
+       fprintf(stderr, "Error! Could not open the file to write \n"); 
+       return 3;
+      }
+return 0;
 }        
            
+
+
+
+
+
           // write to file vs write to screen 
           fprintf(file, "this is a test %d\n", integer); // write to file 
           fprintf(stdout, "this is a test %d\n", integer); // write to screen  
