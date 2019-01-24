@@ -30,11 +30,6 @@ int main( int argc, char *argv[] )
 return 0;
 }        
            
-
-
-
-
-
           // write to file vs write to screen 
           fprintf(file, "this is a test %d\n", integer); // write to file 
           fprintf(stdout, "this is a test %d\n", integer); // write to screen  
