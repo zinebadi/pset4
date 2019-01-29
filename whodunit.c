@@ -1,21 +1,26 @@
 #include <cs50.h>
 #include <stdio.h>
+#include "bmp.h"
 
-int main( int argc, char *argv[] )
+to do list:
+open files
+update header s info for outfile
+read clues scanline pixel by pixel
+change pixel s color
+write verdict s scanline pixel by pixel
+
+int main( int argc, char* argv[] )
 {
-   if( argc == 2 ) 
+   if( argc != 3 )
       {
-      printf("The argument supplied is %s\n", argv[1]);
-       }
-   else 
-   {
-      fprintf( stderr, "the correct usage is by giving two arguments \n");
+      fprintf(stderr, "Usage: ./whodunit infile outfile\n");      
       return 1;
-   }
+      }
    
-   FILE *in_file  = fopen("name_of_file", "r"); // read only 
-   FILE *out_file = fopen("name_of_file", "w"); // write only         
+   FILE in_file  = fopen("argv[1]", "r"); // read only 
+   FILE out_file = fopen("argv[2]", "w"); // write only         
    // test for files not existing. 
+   
    if (in_file == NULL ) 
       {   
        fprintf(stderr, "Error! Could not open the file to read \n"); 
@@ -27,6 +32,7 @@ int main( int argc, char *argv[] )
        fprintf(stderr, "Error! Could not open the file to write \n"); 
        return 3;
       }
+   fread
 return 0;
 }        
            
